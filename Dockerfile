@@ -16,7 +16,8 @@ RUN npm install
 # RUN npm ci --only=production
 
 # Bundle app source
-COPY . .
+COPY src .
 
 EXPOSE $PORT
+
 CMD [ "node", "index.js" ]
