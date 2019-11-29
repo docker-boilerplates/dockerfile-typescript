@@ -1,3 +1,5 @@
+import { Application } from "express";
+
 let store = {};
 
 function verify_name(name) {
@@ -86,7 +88,7 @@ function merge_variables(newstore, overwrite) {
   return 204;
 }
 
-module.exports = function api_calculator(app) {
+export default function api_calculator(app: Application) {
   app.post("/calc", async (req, res) => {
     try {
       res.send(await calc(req.body.expression, req.body.save_to));

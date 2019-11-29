@@ -1,8 +1,11 @@
+import express from "express";
+
+import api_calculator from "./api/calculator";
+
 const path = require("path");
 
-require('dotenv').config({ path: path.resolve(process.cwd(), '../.env') })
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
-const express = require('express')
 const app = express()
 const port = process.env.PORT
 
@@ -17,6 +20,6 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => res.send('Hello World!'))
 
 // Register Paths
-require('./api/calculator')(app);
+api_calculator(app);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
